@@ -7,9 +7,10 @@ console.log($request, 'dd');
 if ($request && $request.method != 'OPTIONS') {
     const signurlVal = $request.url
     const signheaderVal = JSON.stringify($request.headers)
+    
     if (signurlVal) hex.setdata(signurlVal, signurlKey)
     if (signheaderVal) hex.setdata(signheaderVal, signheaderKey)
-    hex.msg(cookieName, `获取Cookie: 成功`, ``, signheaderVal)
+    hex.msg(cookieName, `获取Cookie: 成功`, ``, $request.headers, signheaderVal)
 }
 
 function init () {
