@@ -23,7 +23,7 @@ BoxJs订阅地址: https://raw.githubusercontent.com/hex/Script/master/hex_BoxJs
 let $ = new hex();
 
 // headers
-let signHeaders = $.read('hex_signheader_jinkela');
+// let signHeaders = $.read('hex_signheader_jinkela');
 // 读取headrs的Cookie
 let cookie = $.read('hex_signheader_jinkela');
 
@@ -60,23 +60,24 @@ function checkin() {
 		url: 'https://jinkela.one/user/checkin',
 		headers: headers
 	}
-	console.log(`\n cookie: `, headers);
+	console.log(`\n cookie: `, JSON.stringify(headers));
 	return new Promise((resolve) => { //主函数返回Promise实例对象, 以便后续调用时可以实现顺序执行异步函数
 		$.post(pointUrl, (error, resp, data) => { //使用post请求查询, 再使用回调函数处理返回的结果
 			try { //使用try方法捕获可能出现的代码异常
 				if (error) {
 					throw new Error(error); //如果请求失败, 例如无法联网, 则抛出一个异常
 				} else {
-					console.log(data,'ss');
 					const body = JSON.parse(data); //解析响应体json并转化为对象
 					if (body.ret == 1) { //如果响应体为预期格式
 						console.log(`\n 签到成功: ${body.data}`); //打印日志
+						$.notify(`Jinkela`, `\n 签成功: ${body.data}`, ``)
 					} else { //否则抛出一个异常
 						throw new Error(body.msg || data);
 					}
 				}
 			} catch (e) { //接住try代码块中抛出的异常, 并打印日志
 				console.log(`\n 签到失败: 失败\n出现错误: ${e.message}`);
+				$.notify(`Jinkela`, `\n 签到失败: 失败\n出现错误: ${ e.message }`,``)
 			} finally { //finally语句在try和catch之后无论有无异常都会执行
 				resolve(); //异步操作成功时调用, 将Promise对象的状态标记为"成功", 表示已完成查询积分
 			}
