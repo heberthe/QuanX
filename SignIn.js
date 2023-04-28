@@ -40,18 +40,21 @@ let user = {};
 
 function checkin() {
 	const headers = {
-		"Accept": "application/json, text/javascript, */*; q=0.01",
-		"Accept-Encoding": "gzip, deflate, br",
-		"Cookie": "crisp-client%2Fsession%2Fc9c91de1-3677-4918-822b-49c23c9cc9f6=session_23cff3bf-2e96-472a-a59a-0284a1e9a731; crisp-client%2Fsession%2Fc9c91de1-3677-4918-822b-49c23c9cc9f6%2F2021-12-10%2009%3A37%3A2579426lengfenghhxg%40gmail.com=session_23cff3bf-2e96-472a-a59a-0284a1e9a731; _ga=GA1.2.1655246409.1682590078; _gid=GA1.2.433241957.1682590078; email=lengfenghhxg%40gmail.com; expire_in=1682738396; ip=bfc7ec86a79f6a419a7207c945dd0ef2; key=a5225ec036de28892a9aca8bfc0e81fa906b2ef8a4fb0; uid=79426",
-		"Connection": "keep-alive",
-		"Sec-Fetch-Mode": "cors",
-		"Host": "jinkela.one",
-		"User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.4 Mobile/15E148 Safari/604.1",
-		"Sec-Fetch-Site": "same-origin",
-		"Referer": "https://jinkela.one/user",
-		"Sec-Fetch-Dest": "empty",
-		"Accept-Language": "zh-CN,zh-Hans;q=0.9"
-	}
+        "Host": "jinkela.one",
+        "X-Requested-With": "XMLHttpRequest",
+        "Sec-Fetch-Site": "same-origin",
+        "Accept-Language": "zh-CN,zh-Hans;q=0.9",
+        "Accept-Encoding": "gzip, deflate, br",
+        "Sec-Fetch-Mode": "cors",
+        "Accept": "application/json, text/javascript, */*; q=0.01",
+        "Origin": "https://jinkela.one",
+        "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.4 Mobile/15E148 Safari/604.1",
+        "Referer": "https://jinkela.one/user",
+        "Content-Length": "0",
+        "Connection": "keep-alive",
+			"Cookie": "crisp-client%2Fsession%2Fc9c91de1-3677-4918-822b-49c23c9cc9f6=session_23cff3bf-2e96-472a-a59a-0284a1e9a731; crisp-client%2Fsession%2Fc9c91de1-3677-4918-822b-49c23c9cc9f6%2F2021-12-10%2009%3A37%3A2579426lengfenghhxg%40gmail.com=session_23cff3bf-2e96-472a-a59a-0284a1e9a731; _ga=GA1.2.1655246409.1682590078; _gid=GA1.2.433241957.1682590078; email=lengfenghhxg%40gmail.com; expire_in=1682738396; ip=bfc7ec86a79f6a419a7207c945dd0ef2; key=a5225ec036de28892a9aca8bfc0e81fa906b2ef8a4fb0; uid=79426",
+        "Sec-Fetch-Dest": "empty",
+    }
 	const pointUrl = { //查询积分接口
 		url: 'https://jinkela.one/user/checkin',
 		headers: headers
