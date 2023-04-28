@@ -6,9 +6,11 @@ const hex = init()
 if ($request && $request.method != 'OPTIONS') {
     const signurlVal = $request.url
     const signheaderVal = JSON.stringify($request.headers)
-    hex.msg(cookieName, 'header', signheaderVal)
     if (signurlVal) hex.setdata(signurlVal, signurlKey)
-    if (signheaderVal) hex.setdata(signheaderVal, signheaderKey)
+    if (signheaderVal)  {
+        hex.msg(cookieName, 'header', signheaderVal)
+        hex.setdata(signheaderVal, signheaderKey)
+    }
     hex.msg(cookieName, `获取Cookie: 成功`,``)
 }
 
@@ -23,9 +25,9 @@ function init () {
         if (isSurge()) return $persistentStore.read(key)
         if (isQuanX()) return $prefs.valueForKey(key)
     }
-    setdata = (key, val) => {
-        if (isSurge()) return $persistentStore.write(key, val)
-        if (isQuanX()) return $prefs.setValueForKey(key, val)
+    setdata = (val, key) => {
+        if (isSurge()) return $persistentStore.write(val, key)
+        if (isQuanX()) return $prefs.setValueForKey(val, key)
     }
     msg = (title, subtitle, body) => {
         if (isSurge()) $notification.post(title, subtitle, body)
