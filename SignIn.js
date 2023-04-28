@@ -45,6 +45,7 @@ function checkin() {
 			'Cookie': cookie //用户鉴权Cookie
 		}
 	}
+	console.log(`\n cookie: `,cookie);
 	return new Promise((resolve) => { //主函数返回Promise实例对象, 以便后续调用时可以实现顺序执行异步函数
 		$.post(pointUrl, (error, resp, data) => { //使用post请求查询, 再使用回调函数处理返回的结果
 			try { //使用try方法捕获可能出现的代码异常
