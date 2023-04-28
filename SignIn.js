@@ -52,17 +52,15 @@ function checkin() {
         "Referer": "https://jinkela.one/user",
         "Content-Length": "0",
         "Connection": "keep-alive",
-			"Cookie": "crisp-client%2Fsession%2Fc9c91de1-3677-4918-822b-49c23c9cc9f6=session_23cff3bf-2e96-472a-a59a-0284a1e9a731; crisp-client%2Fsession%2Fc9c91de1-3677-4918-822b-49c23c9cc9f6%2F2021-12-10%2009%3A37%3A2579426lengfenghhxg%40gmail.com=session_23cff3bf-2e96-472a-a59a-0284a1e9a731; _ga=GA1.2.1655246409.1682590078; _gid=GA1.2.433241957.1682590078; email=lengfenghhxg%40gmail.com; expire_in=1682738396; ip=bfc7ec86a79f6a419a7207c945dd0ef2; key=a5225ec036de28892a9aca8bfc0e81fa906b2ef8a4fb0; uid=79426",
+		// "Cookie": "crisp-client%2Fsession%2Fc9c91de1-3677-4918-822b-49c23c9cc9f6=session_23cff3bf-2e96-472a-a59a-0284a1e9a731; crisp-client%2Fsession%2Fc9c91de1-3677-4918-822b-49c23c9cc9f6%2F2021-12-10%2009%3A37%3A2579426lengfenghhxg%40gmail.com=session_23cff3bf-2e96-472a-a59a-0284a1e9a731; _ga=GA1.2.1655246409.1682590078; _gid=GA1.2.433241957.1682590078; email=lengfenghhxg%40gmail.com; expire_in=1682738396; ip=bfc7ec86a79f6a419a7207c945dd0ef2; key=a5225ec036de28892a9aca8bfc0e81fa906b2ef8a4fb0; uid=79426",
         "Sec-Fetch-Dest": "empty",
     }
+	headers["Cookie"] = JSON.parse(cookie).Cookie
 	const pointUrl = { //查询积分接口
 		url: 'https://jinkela.one/user/checkin',
 		headers: headers
-		// { //请求头
-		// 	'Cookie': JSON.parse(cookie) //用户鉴权Cookie
-		// }
 	}
-	console.log(`\n cookie: `, $.read('hex_signheader_jinkela'));
+	console.log(`\n cookie: `, headers);
 	return new Promise((resolve) => { //主函数返回Promise实例对象, 以便后续调用时可以实现顺序执行异步函数
 		$.post(pointUrl, (error, resp, data) => { //使用post请求查询, 再使用回调函数处理返回的结果
 			try { //使用try方法捕获可能出现的代码异常
