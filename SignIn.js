@@ -66,6 +66,7 @@ function checkin() {
 				if (error) {
 					throw new Error(error); //如果请求失败, 例如无法联网, 则抛出一个异常
 				} else {
+					console.log(data,'ss');
 					const body = JSON.parse(data); //解析响应体json并转化为对象
 					if (body.ret == 1) { //如果响应体为预期格式
 						console.log(`\n 签到成功: ${body.data}`); //打印日志
