@@ -3,6 +3,7 @@ const signurlKey = 'hex_signurl_jinkela'
 const signheaderKey = 'hex_signheader_jinkela'
 const hex = init()
 
+console.log($reques, 'dd');
 if ($request && $request.method != 'OPTIONS') {
     const signurlVal = $request.url
     const signheaderVal = JSON.stringify($request.headers)
