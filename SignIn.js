@@ -35,7 +35,7 @@ let user = {};
 	await Promise.all([ //该方法用于将多个实例包装成一个新的实例, 可以简单理解为同时调用函数, 以进一步提高执行速度
 		checkin(), //签到
 	]);
-	$.done(); //抢购完成后调用Surge、QX内部特有的函数, 用于退出脚本执行
+	$.done(); //完成后调用Surge、QX内部特有的函数, 用于退出脚本执行
 })();
 
 function checkin() {
@@ -56,21 +56,21 @@ function checkin() {
         "Sec-Fetch-Dest": "empty",
     }
 	headers["Cookie"] = JSON.parse(cookie).Cookie
-	const pointUrl = { //查询积分接口
+	const signUrl = {
 		url: 'https://jinkela.one/user/checkin',
 		headers: headers
 	}
 	console.log(`\n cookie: `, JSON.stringify(headers));
 	return new Promise((resolve) => { //主函数返回Promise实例对象, 以便后续调用时可以实现顺序执行异步函数
-		$.post(pointUrl, (error, resp, data) => { //使用post请求查询, 再使用回调函数处理返回的结果
+		$.post(signUrl, (error, resp, data) => { //使用post请求查询, 再使用回调函数处理返回的结果
 			try { //使用try方法捕获可能出现的代码异常
 				if (error) {
 					throw new Error(error); //如果请求失败, 例如无法联网, 则抛出一个异常
 				} else {
 					const body = JSON.parse(data); //解析响应体json并转化为对象
 					if (body.ret == 1) { //如果响应体为预期格式
-						console.log(`\n 签到成功: ${body.data}`); //打印日志
-						$.notify(`Jinkela`, `签到成功: ${body.data}`, ``)
+						console.log(`\n 签到成功: ${body.msg}`); //打印日志
+						$.notify(`Jinkela`, `签到成功: ${body.msg}`, ``)
 					} else { //否则抛出一个异常
 						throw new Error(body.msg || data);
 					}
