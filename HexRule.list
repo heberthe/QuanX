@@ -1,2 +1,10 @@
 DOMAIN-SUFFIX,branch.io
 DOMAIN-SUFFIX,analytics.twitter.com
+
+# BlockChain
+DOMAIN-KEYWORD,imtoken,💎 BlockChain
+DOMAIN-SUFFIX,token.im,💎 BlockChain
+DOMAIN-SUFFIX,bitget.com,💎 BlockChain
+DOMAIN-SUFFIX,bitgetapp.com,💎 BlockChain
+DOMAIN-KEYWORD,bieget,💎 BlockChain
+
