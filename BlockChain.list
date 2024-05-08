@@ -209,3 +209,6 @@ DOMAIN-KEYWORD,bitget
 DOMAIN-KEYWORD,imtoken
 DOMAIN-KEYWORD,improd
 DOMAIN-SUFFIX,zklend.com
+DOMAIN-KEYWORD,linea
+DOMAIN-SUFFIX,linea.build
+DOMAIN-SUFFIX,linea-mainnet.infura.io
