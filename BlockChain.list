@@ -212,3 +212,6 @@ DOMAIN-SUFFIX,zklend.com
 DOMAIN-KEYWORD,linea
 DOMAIN-SUFFIX,linea.build
 DOMAIN-SUFFIX,linea-mainnet.infura.io
+DOMAIN-KEYWORD,zklend
+DOMAIN-KEYWORD,bybit
+DOMAIN-SUFFIX,bybit.com
